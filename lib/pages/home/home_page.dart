@@ -154,14 +154,30 @@ class HomePage extends StatelessWidget {
               SectionHeading(text: "Featured", onTap: () {}),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: PropertyCard(onTap: () {}, onBookmark: () {},),
+                child: Container(
+                  width: 345.w, height: 280.h ,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (ctx, index) {
+                            return PropertyCard(onTap: () {}, onBookmark: () {},);
+                          }),
+                ),
               ),
               SectionHeading(text: "Trending", onTap: () {}),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: PropertyCard(onTap: () {}, onBookmark: () {},),
+                child: Container(
+                  width: 345.w, height: 280.h ,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (ctx, index) {
+                        return PropertyCard(onTap: () {}, onBookmark: () {},);
+                      }),
+                ),
               ),
-              SizedBox(height: 60.h)
+              SizedBox(height: 30.h)
             ],
           ),
         ),

@@ -12,189 +12,192 @@ class PropertyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(12.w),
-                    topLeft: Radius.circular(12.w)),
-                child: Image.asset(
-                  "assets/images/home3.jpg",
-                  fit: BoxFit.cover,
-                  width: 330.w,
-                  height: 150.h,
-                ),
-              ),
-              Positioned(
-                right: 10,
-                top: 10,
-                child: GestureDetector(
-                  onTap: onBookmark,
-                  child: Container(
-                    width: 30.w,
-                    height: 30.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.secColor,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(6.w),
-                      ),
-                    ),
-                    child: Icon(
-                      Icons.bookmark_outline_sharp,
-                      size: 20,
-                      color: AppColors.white,
-                    ),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(12.w),
+                      topLeft: Radius.circular(12.w)),
+                  child: Image.asset(
+                    "assets/images/home3.jpg",
+                    fit: BoxFit.cover,
+                    width: 330.w,
+                    height: 150.h,
                   ),
                 ),
-              ),
-            ],
-          ),
-          Container(
-            width: 330.w,
-            height: 105.h,
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(12.w),
-                bottomLeft: Radius.circular(12.w),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.4),
-                  spreadRadius: 1,
-                  blurRadius: 1,
-                  offset: const Offset(0, 1), // changes position of shadow
+                Positioned(
+                  right: 10,
+                  top: 10,
+                  child: GestureDetector(
+                    onTap: onBookmark,
+                    child: Container(
+                      width: 30.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        color: AppColors.secColor,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(6.w),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.bookmark_outline_sharp,
+                        size: 20,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
-            child: Container(
-              padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fully Detached Duplex",
-                        style:
-                            appStyle(14, AppColors.priColor, FontWeight.w500),
-                        maxLines: 1,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "4.5",
-                            style: appStyle(
-                                14, AppColors.priColor, FontWeight.w500),
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 19,
-                            color: AppColors.priColor,
-                          )
-                        ],
-                      )
-                    ],
+            Container(
+              width: 330.w,
+              height: 105.h,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(12.w),
+                  bottomLeft: Radius.circular(12.w),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.4),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: const Offset(0, 1), // changes position of shadow
                   ),
-                  SizedBox(height: 3.h),
-                  Text(
-                    "Fully detached 6 bedroom duplex with penthouse, BQ, swimming pool.",
-                    style: appStyle(10.sp, AppColors.priColor, FontWeight.normal),
-                    maxLines: 2,
-                  ),
-                  SizedBox(height: 5.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.car_crash_outlined,
-                                  size: 16.w,
-                                  color: AppColors.priColor,
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                  "2",
-                                  style: appStyle(13, AppColors.priColor,
-                                      FontWeight.normal),
-                                )
-                              ],
-                            ),
-                            SizedBox(width: 10.w),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.bathtub_outlined,
-                                  size: 16.w,
-                                  color: AppColors.priColor,
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                  "5",
-                                  style: appStyle(13, AppColors.priColor,
-                                      FontWeight.normal),
-                                )
-                              ],
-                            ),
-                            SizedBox(width: 10.w),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.house_outlined,
-                                  size: 18.w,
-                                  color: AppColors.priColor,
-                                ),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                  "Duplex",
-                                  style: appStyle(13, AppColors.priColor,
-                                      FontWeight.normal),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "\$5,500/",
-                            style: appStyle(
-                                14, AppColors.priColor, FontWeight.w600),
-                          ),
-                          Text(
-                            "monthly",
-                            style: appStyle(
-                                12, AppColors.secColor, FontWeight.w500),
-                          )
-                        ],
-                      )
-                    ],
-                  )
                 ],
               ),
-            ),
-          )
-        ],
+              child: Container(
+                padding: EdgeInsets.all(10.w),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Fully Detached Duplex",
+                          style:
+                              appStyle(14, AppColors.priColor, FontWeight.w500),
+                          maxLines: 1,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "4.5",
+                              style: appStyle(
+                                  14, AppColors.priColor, FontWeight.w500),
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 19,
+                              color: AppColors.priColor,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 3.h),
+                    Text(
+                      "Fully detached 6 bedroom duplex with penthouse, BQ, swimming pool.",
+                      style: appStyle(10.sp, AppColors.priColor, FontWeight.normal),
+                      maxLines: 2,
+                    ),
+                    SizedBox(height: 5.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.car_crash_outlined,
+                                    size: 16.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    "2",
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 10.w),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.bathtub_outlined,
+                                    size: 16.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    "5",
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 10.w),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.house_outlined,
+                                    size: 18.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    "Duplex",
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "\$5,500/",
+                              style: appStyle(
+                                  14, AppColors.priColor, FontWeight.w600),
+                            ),
+                            Text(
+                              "monthly",
+                              style: appStyle(
+                                  12, AppColors.secColor, FontWeight.w500),
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
