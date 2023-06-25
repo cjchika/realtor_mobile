@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppTextStyles {
-  static TextStyle heading1 = const TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.w700,
-    color: Colors.black,
-  );
+TextStyle appStyle(double size, Color color, FontWeight fw){
+  return TextStyle(fontSize: size.sp, color: color, fontWeight: fw);
 }
