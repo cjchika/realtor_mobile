@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
+import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
 
 class HomePage extends StatelessWidget {
@@ -150,7 +151,8 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SectionHeading(text: "Featured", onTap: () {})
+              SectionHeading(text: "Featured", onTap: () {}),
+              PropertyCard(onTap: () {}),
             ],
           ),
         ),
