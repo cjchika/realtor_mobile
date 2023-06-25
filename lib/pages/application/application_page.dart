@@ -18,7 +18,7 @@ class ApplicationPage extends ConsumerWidget {
           body: CurrentPage(index: currentIdx),
           bottomNavigationBar: Container(
             width: 375.w,
-            height: 55.h,
+            height: 60.h,
             decoration: BoxDecoration(color: AppColors.white, boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.3),
