@@ -156,7 +156,12 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
                 child: PropertyCard(onTap: () {}, onBookmark: () {},),
               ),
-
+              SectionHeading(text: "Trending", onTap: () {}),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
+                child: PropertyCard(onTap: () {}, onBookmark: () {},),
+              ),
+              SizedBox(height: 60.h)
             ],
           ),
         ),

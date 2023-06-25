@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
+import 'package:realtor_app/core/constants/app_style.dart';
 
 class PropertyCard extends StatelessWidget {
   const PropertyCard(
@@ -43,7 +44,8 @@ class PropertyCard extends StatelessWidget {
                       ),
                     ),
                     child: Icon(
-                      Icons.bookmark_outline_sharp, size: 20,
+                      Icons.bookmark_outline_sharp,
+                      size: 20,
                       color: AppColors.white,
                     ),
                   ),
@@ -53,7 +55,7 @@ class PropertyCard extends StatelessWidget {
           ),
           Container(
             width: 330.w,
-            height: 80.h,
+            height: 105.h,
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.only(
@@ -67,10 +69,63 @@ class PropertyCard extends StatelessWidget {
                   blurRadius: 1,
                   offset: const Offset(0, 1), // changes position of shadow
                 ),
-
               ],
             ),
-            child: Container(),
+            child: Container(
+              padding: EdgeInsets.all(10.w),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fully Detached Duplex",
+                        style:
+                            appStyle(14, AppColors.priColor, FontWeight.w500), maxLines: 1,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "4.5",
+                            style: appStyle(
+                                14, AppColors.priColor, FontWeight.w500),
+                          ),
+                          Icon(
+                            Icons.star,
+                            size: 19,
+                            color: AppColors.priColor,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 3.h),
+                  Text(
+                    "Fully detached 6 bedroom duplex with penthouse, BQ, swimming pool.",
+                    style: appStyle(10.sp, AppColors.black, FontWeight.normal),
+                    maxLines: 2,
+                  ),
+                  SizedBox(height: 5.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            Text("Parking"),
+                            Text("Bath")
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [Text("\$5,500/", style: appStyle(14, AppColors.priColor, FontWeight.w600),), Text("monthly", style: appStyle(12, AppColors.secColor, FontWeight.w500))],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
