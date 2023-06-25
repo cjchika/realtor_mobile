@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           children: [
             Container(
               color: AppColors.liteColor.withOpacity(0.4),
-              padding: EdgeInsets.symmetric(vertical: 45.h, horizontal: 25.h),
+              padding: EdgeInsets.only(left: 22.w, right: 22.w, top: 50.h, bottom: 25.h),
               child: Column(
                 children: [
                   Row(
@@ -59,6 +59,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 16.h),
                   Container(
                     padding: EdgeInsets.all(5.w),
+                    height: 100.h,
                     decoration: BoxDecoration(
                         color: AppColors.white,
                         borderRadius: BorderRadius.all(Radius.circular(8.w))),
@@ -122,10 +123,20 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        GestureDetector(onTap: null, child: Container(child: Text("Search"),),)
                       ],
                     ),
                   ),
+                  SizedBox(height: 16.h),
+                  GestureDetector(
+                    onTap: null,
+                    child: Container(
+                      width: 330.w,
+                      height: 48.h,
+                      decoration:
+                      BoxDecoration(color: AppColors.priColor, borderRadius: BorderRadius.all(Radius.circular(10.w))),
+                      child: Center(child: Text("Search", style: appStyle(16, AppColors.white, FontWeight.w500),)),
+                    ),
+                  )
                 ],
               ),
             )
