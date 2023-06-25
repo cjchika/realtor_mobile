@@ -104,7 +104,7 @@ class PropertyCard extends StatelessWidget {
                   SizedBox(height: 3.h),
                   Text(
                     "Fully detached 6 bedroom duplex with penthouse, BQ, swimming pool.",
-                    style: appStyle(10.sp, AppColors.black, FontWeight.normal),
+                    style: appStyle(10.sp, AppColors.priColor, FontWeight.normal),
                     maxLines: 2,
                   ),
                   SizedBox(height: 5.h),
@@ -121,6 +121,7 @@ class PropertyCard extends StatelessWidget {
                                 Icon(
                                   Icons.car_crash_outlined,
                                   size: 16.w,
+                                  color: AppColors.priColor,
                                 ),
                                 SizedBox(
                                   width: 5.w,
@@ -139,6 +140,7 @@ class PropertyCard extends StatelessWidget {
                                 Icon(
                                   Icons.bathtub_outlined,
                                   size: 16.w,
+                                  color: AppColors.priColor,
                                 ),
                                 SizedBox(
                                   width: 5.w,
@@ -157,6 +159,7 @@ class PropertyCard extends StatelessWidget {
                                 Icon(
                                   Icons.house_outlined,
                                   size: 18.w,
+                                  color: AppColors.priColor,
                                 ),
                                 SizedBox(
                                   width: 5.w,
