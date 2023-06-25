@@ -152,7 +152,11 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SectionHeading(text: "Featured", onTap: () {}),
-              PropertyCard(onTap: () {}),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
+                child: PropertyCard(onTap: () {}),
+              ),
+
             ],
           ),
         ),
