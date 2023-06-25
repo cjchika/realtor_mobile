@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
+import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             "Sunday, June 25",
                             style: appStyle(
-                                12.sp, AppColors.secColor, FontWeight.w500),
+                                10.sp, AppColors.secColor, FontWeight.w500),
                           ),
                           SizedBox(height: 4.h),
                           Text(
@@ -86,22 +87,45 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5.h, horizontal: 10.w),
-                            child: Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.bed_outlined, color: AppColors.priColor.withOpacity(0.5), size: 21),
-                                    SizedBox(width: 7.w),
-                                    Text("Bed", style: appStyle(16, AppColors.priColor.withOpacity(0.5), FontWeight.w600),)
-                                  ],
-                                )
-                              ],
-                            )),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 5.h, horizontal: 10.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconText(
+                                  color: AppColors.priColor.withOpacity(0.5),
+                                  icon: Icons.bed_outlined,
+                                  text: "Bed",
+                                  textStyle: appStyle(
+                                      16,
+                                      AppColors.priColor.withOpacity(0.5),
+                                      FontWeight.w600),
+                                  size: 21),
+                              IconText(
+                                  color: AppColors.priColor.withOpacity(0.5),
+                                  icon: Icons.currency_exchange,
+                                  text: "500-1000",
+                                  textStyle: appStyle(
+                                      15,
+                                      AppColors.priColor.withOpacity(0.5),
+                                      FontWeight.w600),
+                                  size: 17),
+                              IconText(
+                                  color: AppColors.priColor.withOpacity(0.5),
+                                  icon: Icons.house_outlined,
+                                  text: "Type",
+                                  textStyle: appStyle(
+                                      15,
+                                      AppColors.priColor.withOpacity(0.5),
+                                      FontWeight.w600),
+                                  size: 21),
+                            ],
+                          ),
+                        ),
+                        GestureDetector(onTap: null, child: Container(child: Text("Search"),),)
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             )
