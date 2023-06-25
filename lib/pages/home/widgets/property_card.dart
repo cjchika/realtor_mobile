@@ -81,7 +81,8 @@ class PropertyCard extends StatelessWidget {
                       Text(
                         "Fully Detached Duplex",
                         style:
-                            appStyle(14, AppColors.priColor, FontWeight.w500), maxLines: 1,
+                            appStyle(14, AppColors.priColor, FontWeight.w500),
+                        maxLines: 1,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,17 +110,80 @@ class PropertyCard extends StatelessWidget {
                   SizedBox(height: 5.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         child: Row(
                           children: [
-                            Text("Parking"),
-                            Text("Bath")
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.car_crash_outlined,
+                                  size: 16.w,
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                  "2",
+                                  style: appStyle(13, AppColors.priColor,
+                                      FontWeight.normal),
+                                )
+                              ],
+                            ),
+                            SizedBox(width: 10.w),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.bathtub_outlined,
+                                  size: 16.w,
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                  "5",
+                                  style: appStyle(13, AppColors.priColor,
+                                      FontWeight.normal),
+                                )
+                              ],
+                            ),
+                            SizedBox(width: 10.w),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.house_outlined,
+                                  size: 18.w,
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                  "Duplex",
+                                  style: appStyle(13, AppColors.priColor,
+                                      FontWeight.normal),
+                                )
+                              ],
+                            ),
                           ],
                         ),
                       ),
                       Row(
-                        children: [Text("\$5,500/", style: appStyle(14, AppColors.priColor, FontWeight.w600),), Text("monthly", style: appStyle(12, AppColors.secColor, FontWeight.w500))],
+                        children: [
+                          Text(
+                            "\$5,500/",
+                            style: appStyle(
+                                14, AppColors.priColor, FontWeight.w600),
+                          ),
+                          Text(
+                            "monthly",
+                            style: appStyle(
+                                12, AppColors.secColor, FontWeight.w500),
+                          )
+                        ],
                       )
                     ],
                   )
