@@ -61,7 +61,7 @@ class PageSlide extends ConsumerWidget {
              curve: Curves.easeIn,
            );
          } else {
-           Navigator.of(context).pushNamedAndRemoveUntil(Routes.HOME, (route) => false);
+           Navigator.of(context).pushNamedAndRemoveUntil(Routes.APPLICATION, (route) => false);
          }
         },
         child: Container(
