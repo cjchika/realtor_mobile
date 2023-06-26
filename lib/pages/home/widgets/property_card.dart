@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/data/models/property_model.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PropertyCard extends StatelessWidget {
   const PropertyCard({
@@ -36,8 +37,14 @@ class PropertyCard extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: 330.w,
                     height: 150.h,
-                    placeholder: (context, url) => Center(child: Text("Loading...", style: appStyle(16, AppColors.priColor, FontWeight.w500),)),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    placeholder: (context, url) => SvgPicture.asset(
+                      'assets/images/placeholder.svg',
+                      fit: BoxFit.cover,
+                      width: 330.w,
+                      height: 150.h,
+                    ),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 Positioned(

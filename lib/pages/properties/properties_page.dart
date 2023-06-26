@@ -26,17 +26,23 @@ class PropertiesPage extends ConsumerWidget {
           ),
         ),
       ),
-      body: Padding(
-
-        padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
-          child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: 8,
-              itemBuilder: (ctx, index) {
-                return Center(child: Text("New"));
-              }),
-        ),
-      );
-
+      body: isLoading
+          ? Center(
+              child: CircularProgressIndicator(color: AppColors.priColor),
+            )
+          : Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: propertyList.length,
+                  itemBuilder: (ctx, index) {
+                    return PropertyCard(
+                      onTap: () {},
+                      onBookmark: () {},
+                      property: propertyList[index],
+                    );
+                  }),
+            ),
+    );
   }
 }

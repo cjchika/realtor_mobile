@@ -9,11 +9,14 @@ import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
 import 'package:realtor_app/routes/routes.dart';
 
+import '../application/providers/application_providers.dart';
+
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final currentIdx = ref.watch(bottomIndexProvider);
     final fiveFeaturedPropertyList = ref.watch(propertyProvider);
     final isLoading = ref.watch(isLoadingPropertiesProvider);
 
@@ -157,7 +160,7 @@ class HomePage extends ConsumerWidget {
                   ],
                 ),
               ),
-              SectionHeading(text: "Featured", onTap: () => Navigator.pushNamed(context, Routes.PROPERTIES)),
+              SectionHeading(text: "Featured", onTap: () => ref.read(bottomIndexProvider.notifier).state = 1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
                 child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
@@ -170,7 +173,7 @@ class HomePage extends ConsumerWidget {
                           }),
                 ),
               ),
-              SectionHeading(text: "Trending", onTap: () => Navigator.pushNamed(context, Routes.PROPERTIES)),
+              SectionHeading(text: "Trending", onTap:() => ref.read(bottomIndexProvider.notifier).state = 1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
                 child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
