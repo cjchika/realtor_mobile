@@ -1,6 +1,6 @@
 class Endpoints {
   // base url
-  static const String baseUrl = "https://v2.jokeapi.dev/joke/Programming?type=single";
+  static const String baseUrl = 'https://bayut.p.rapidapi.com/properties/list';
 
   // receiveTimeout
   static const int receiveTimeout = 15000;

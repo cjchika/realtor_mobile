@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
+import 'package:realtor_app/data/providers/api_provider.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.read(propertyRepositoryProvider).getProperties();
+    print(data);
     final TextEditingController controller = TextEditingController();
 
     return Scaffold(

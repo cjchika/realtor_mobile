@@ -5,13 +5,13 @@ part 'property_model.freezed.dart';
 part 'property_model.g.dart';
 
 @freezed
-class PropertyModel with _$ProductModel {
+class PropertyModel with _$PropertyModel {
   const factory PropertyModel({
     String? externalID,
-    Map<String,dynamic>? coverPhoto,
+    String? coverPhoto,
     String? title,
     String? rentFrequency,
-    List<Map<int, dynamic>>? location,
+    String? location,
     int? productScore,
     String? type,
     int? rooms,
@@ -23,3 +23,6 @@ class PropertyModel with _$ProductModel {
   factory PropertyModel.fromJson(Map<String, dynamic> json) =>
       _$PropertyModelFromJson(json);
 }
+
+// List<Map<int, dynamic>>
+// Map<String,dynamic>

@@ -16,13 +16,14 @@ class PropertiesPage extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            "Properties",
+            "Property Listing",
             style: appStyle(18.sp, AppColors.priColor, FontWeight.w500),
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
+
+        padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: 8,

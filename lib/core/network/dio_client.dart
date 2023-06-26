@@ -22,6 +22,7 @@ class DioClient {
         responseBody: true,
       ));
   }
+
   // Get:-----------------------------------------------------------------------
   Future<dynamic> get(
     String uri, {
@@ -33,8 +34,11 @@ class DioClient {
     try {
       final Response response = await _dio.get(
         uri,
-        queryParameters: queryParameters,
-        options: options,
+        queryParameters: {'locationExternalIDs': '5002,6020'},
+        options: Options(method: 'GET', headers: {
+          "x-rapidapi-key": 'bd9812d039mshaf648f73f6fe561p1d9206jsnc85ea1d15d4e',
+          "x-rapidapi-host": 'bayut.p.rapidapi.com',
+        }),
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       );
