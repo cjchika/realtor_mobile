@@ -102,7 +102,7 @@ class PropertyCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "4.5",
+                              property.productScore.toString(),
                               style: appStyle(
                                   14, AppColors.priColor, FontWeight.w500),
                             ),
@@ -115,7 +115,7 @@ class PropertyCard extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 3.h),
+                    SizedBox(height: 8.h),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -124,13 +124,13 @@ class PropertyCard extends StatelessWidget {
                             property.title ?? "",
                             style: appStyle(
                                 10.sp, AppColors.priColor, FontWeight.normal),
-                            maxLines: 2,
+                            maxLines: 1,
                             textAlign: TextAlign.start,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5.h),
+                    SizedBox(height: 8.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,7 +142,7 @@ class PropertyCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Icon(
-                                    Icons.car_crash_outlined,
+                                    Icons.bed_outlined,
                                     size: 16.w,
                                     color: AppColors.priColor,
                                   ),
@@ -150,7 +150,7 @@ class PropertyCard extends StatelessWidget {
                                     width: 5.w,
                                   ),
                                   Text(
-                                    "2",
+                                    property.rooms.toString(),
                                     style: appStyle(13, AppColors.priColor,
                                         FontWeight.normal),
                                   )
@@ -169,7 +169,7 @@ class PropertyCard extends StatelessWidget {
                                     width: 5.w,
                                   ),
                                   Text(
-                                    "5",
+                                    property.baths.toString(),
                                     style: appStyle(13, AppColors.priColor,
                                         FontWeight.normal),
                                   )
@@ -188,7 +188,7 @@ class PropertyCard extends StatelessWidget {
                                     width: 5.w,
                                   ),
                                   Text(
-                                    "Duplex",
+                                    property.category ?? "",
                                     style: appStyle(13, AppColors.priColor,
                                         FontWeight.normal),
                                   )
@@ -200,12 +200,12 @@ class PropertyCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "\$5,500/",
+                              "\$${property.price}/",
                               style: appStyle(
                                   14, AppColors.priColor, FontWeight.w600),
                             ),
                             Text(
-                              "monthly",
+                              property.rentFrequency.toString(),
                               style: appStyle(
                                   12, AppColors.secColor, FontWeight.w500),
                             )

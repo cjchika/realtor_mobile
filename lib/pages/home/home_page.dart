@@ -7,6 +7,7 @@ import 'package:realtor_app/data/providers/property_provider.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
+import 'package:realtor_app/routes/routes.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -156,11 +157,11 @@ class HomePage extends ConsumerWidget {
                   ],
                 ),
               ),
-              SectionHeading(text: "Featured", onTap: () {}),
+              SectionHeading(text: "Featured", onTap: () => Navigator.pushNamed(context, Routes.PROPERTIES)),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
                 child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
-                  width: 345.w, height: 280.h ,
+                  width: 345.w, height: 270.h ,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
@@ -169,11 +170,11 @@ class HomePage extends ConsumerWidget {
                           }),
                 ),
               ),
-              SectionHeading(text: "Trending", onTap: () {}),
+              SectionHeading(text: "Trending", onTap: () => Navigator.pushNamed(context, Routes.PROPERTIES)),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
                 child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
-                  width: 345.w, height: 280.h ,
+                  width: 345.w, height: 270.h ,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
