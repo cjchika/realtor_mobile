@@ -15,7 +15,6 @@ class PropertyRepository {
     try {
       final res = await _propertyApi.fetchProperties();
       List<PropertyModel> propertyList = [];
-      // Map<String, dynamic> jsonData = jsonDecode(res);
       List<dynamic> hits = res['hits'];
       for (var hit in hits) {
         PropertyModel property = PropertyModel(
@@ -24,6 +23,8 @@ class PropertyRepository {
           title: hit['title'],
           rentFrequency: hit['rentFrequency'],
           location: hit['location'][0]['name'],
+          category: hit['category'][0]['name'],
+          amenities: hit['amenities'],
           productScore: hit['productScore'],
           type: hit['type'],
           rooms: hit['rooms'],
@@ -32,7 +33,7 @@ class PropertyRepository {
         );
         propertyList.add(property);
       }
-      print(propertyList);
+      // print(propertyList);
       return propertyList;
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e);

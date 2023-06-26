@@ -34,7 +34,7 @@ class DioClient {
     try {
       final Response response = await _dio.get(
         uri,
-        queryParameters: {'locationExternalIDs': '5002,6020'},
+        queryParameters: queryParameters,
         options: Options(method: 'GET', headers: {
           "x-rapidapi-key": 'bd9812d039mshaf648f73f6fe561p1d9206jsnc85ea1d15d4e',
           "x-rapidapi-host": 'bayut.p.rapidapi.com',

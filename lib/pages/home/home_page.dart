@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
-import 'package:realtor_app/data/providers/api_provider.dart';
+import 'package:realtor_app/data/providers/property_provider.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
@@ -13,8 +13,9 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.read(propertyRepositoryProvider).getProperties();
-    print(data);
+    final fiveFeaturedPropertyList = ref.watch(propertyProvider);
+    final isLoading = ref.watch(isLoadingPropertiesProvider);
+
     final TextEditingController controller = TextEditingController();
 
     return Scaffold(
@@ -158,26 +159,26 @@ class HomePage extends ConsumerWidget {
               SectionHeading(text: "Featured", onTap: () {}),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: Container(
+                child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
                   width: 345.w, height: 280.h ,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: 4,
+                          itemCount: 5,
                           itemBuilder: (ctx, index) {
-                            return PropertyCard(onTap: () {}, onBookmark: () {},);
+                            return PropertyCard(onTap: () {}, onBookmark: () {}, property: fiveFeaturedPropertyList[index], );
                           }),
                 ),
               ),
               SectionHeading(text: "Trending", onTap: () {}),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: Container(
+                child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
                   width: 345.w, height: 280.h ,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 4,
+                      itemCount: 5,
                       itemBuilder: (ctx, index) {
-                        return PropertyCard(onTap: () {}, onBookmark: () {},);
+                        return PropertyCard(onTap: () {}, onBookmark: () {}, property: fiveFeaturedPropertyList.reversed.toList()[index], );
                       }),
                 ),
               ),

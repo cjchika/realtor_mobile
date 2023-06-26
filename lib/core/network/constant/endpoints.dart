@@ -1,6 +1,6 @@
 class Endpoints {
   // base url
-  static const String baseUrl = 'https://bayut.p.rapidapi.com/properties/list';
+  static const String baseUrl = 'https://bayut.p.rapidapi.com/properties';
 
   // receiveTimeout
   static const int receiveTimeout = 15000;

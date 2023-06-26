@@ -12,6 +12,8 @@ class PropertyModel with _$PropertyModel {
     String? title,
     String? rentFrequency,
     String? location,
+    String? category,
+    List? amenities,
     int? productScore,
     String? type,
     int? rooms,

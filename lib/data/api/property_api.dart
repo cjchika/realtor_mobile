@@ -10,7 +10,7 @@ class PropertyApi {
 
   Future<Map<String, dynamic>> fetchProperties() async {
     try {
-      final res = await _dioClient.get(Endpoints.baseUrl);
+      final res = await _dioClient.get('${Endpoints.baseUrl}/list?locationExternalIDs=5002,6020');
       return res.data;
     } catch (e) {
       rethrow;
