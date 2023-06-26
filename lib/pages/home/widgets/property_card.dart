@@ -1,14 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
+import 'package:realtor_app/data/models/property_model.dart';
 
 class PropertyCard extends StatelessWidget {
-  const PropertyCard(
-      {super.key, required this.onTap, required this.onBookmark});
+  const PropertyCard({
+    super.key,
+    required this.onTap,
+    required this.onBookmark,
+    required this.property,
+  });
 
   final void Function() onTap;
   final void Function() onBookmark;
+  final PropertyModel property;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +31,13 @@ class PropertyCard extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(12.w),
                       topLeft: Radius.circular(12.w)),
-                  child: Image.asset(
-                    "assets/images/home3.jpg",
+                  child: CachedNetworkImage(
+                    imageUrl: property.coverPhoto ?? "",
                     fit: BoxFit.cover,
                     width: 330.w,
                     height: 150.h,
+                    placeholder: (context, url) => Center(child: Text("Loading...", style: appStyle(16, AppColors.priColor, FontWeight.w500),)),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
                 Positioned(
@@ -80,11 +89,14 @@ class PropertyCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Fully Detached Duplex",
-                          style:
-                              appStyle(14, AppColors.priColor, FontWeight.w500),
-                          maxLines: 1,
+                        Flexible(
+                          child: Text(
+                            property.title ?? "",
+                            style: appStyle(
+                                14, AppColors.priColor, FontWeight.w500),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,10 +116,19 @@ class PropertyCard extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 3.h),
-                    Text(
-                      "Fully detached 6 bedroom duplex with penthouse, BQ, swimming pool.",
-                      style: appStyle(10.sp, AppColors.priColor, FontWeight.normal),
-                      maxLines: 2,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            property.title ?? "",
+                            style: appStyle(
+                                10.sp, AppColors.priColor, FontWeight.normal),
+                            maxLines: 2,
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 5.h),
                     Row(

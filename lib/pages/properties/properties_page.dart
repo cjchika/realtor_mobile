@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
+import 'package:realtor_app/data/providers/property_provider.dart';
 
 import '../home/widgets/property_card.dart';
 
-class PropertiesPage extends StatelessWidget {
+class PropertiesPage extends ConsumerWidget {
   const PropertiesPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final propertyList = ref.watch(propertyProvider);
+    final isLoading = ref.watch(isLoadingPropertiesProvider);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -28,10 +33,7 @@ class PropertiesPage extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemCount: 8,
               itemBuilder: (ctx, index) {
-                return PropertyCard(
-                  onTap: () {},
-                  onBookmark: () {},
-                );
+                return Center(child: Text("New"));
               }),
         ),
       );
