@@ -9,7 +9,6 @@ import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
 import 'package:realtor_app/pages/property_details/property_details_page.dart';
-import 'package:realtor_app/routes/routes.dart';
 
 import '../application/providers/application_providers.dart';
 
@@ -186,9 +185,13 @@ class HomePage extends ConsumerWidget {
                             itemBuilder: (ctx, index) {
                               return PropertyCard(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          PropertyDetailsPage(property: fiveFeaturedPropertyList[index])));
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => PropertyDetailsPage(
+                                          property:
+                                              fiveFeaturedPropertyList[index]),
+                                    ),
+                                  );
                                 },
                                 property: fiveFeaturedPropertyList[index],
                               );
@@ -211,12 +214,16 @@ class HomePage extends ConsumerWidget {
                             itemCount: 5,
                             itemBuilder: (ctx, index) {
                               return PropertyCard(
-                                  onTap: () {
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) =>
-                                            PropertyDetailsPage(property: fiveFeaturedPropertyList.reversed
-                                                .toList()[index])));
-                                  },
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => PropertyDetailsPage(
+                                          property: fiveFeaturedPropertyList
+                                              .reversed
+                                              .toList()[index]),
+                                    ),
+                                  );
+                                },
                                 property: fiveFeaturedPropertyList.reversed
                                     .toList()[index],
                               );

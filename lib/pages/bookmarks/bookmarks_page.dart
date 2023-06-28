@@ -7,6 +7,7 @@ import 'package:realtor_app/data/providers/bookmark_provider.dart';
 import 'package:realtor_app/data/providers/property_provider.dart';
 
 import '../home/widgets/property_card.dart';
+import '../property_details/property_details_page.dart';
 
 class BookmarksPage extends ConsumerWidget {
   const BookmarksPage({super.key});
@@ -39,7 +40,12 @@ class BookmarksPage extends ConsumerWidget {
                       itemCount: propertyBookmarksList.length,
                       itemBuilder: (ctx, index) {
                         return PropertyCard(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => PropertyDetailsPage(
+                                  property: propertyBookmarksList[index]),
+                            ));
+                          },
                           property: propertyBookmarksList[index],
                         );
                       })

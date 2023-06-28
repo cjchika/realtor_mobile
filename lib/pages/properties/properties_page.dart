@@ -6,6 +6,7 @@ import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/data/providers/property_provider.dart';
 
 import '../home/widgets/property_card.dart';
+import '../property_details/property_details_page.dart';
 
 class PropertiesPage extends ConsumerWidget {
   const PropertiesPage({super.key});
@@ -37,7 +38,12 @@ class PropertiesPage extends ConsumerWidget {
                   itemCount: propertyList.length,
                   itemBuilder: (ctx, index) {
                     return PropertyCard(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PropertyDetailsPage(
+                              property: propertyList[index]),
+                        ));
+                      },
                       property: propertyList[index],
                     );
                   }),
