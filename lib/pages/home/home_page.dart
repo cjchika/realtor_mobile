@@ -8,6 +8,8 @@ import 'package:realtor_app/data/providers/property_provider.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
+import 'package:realtor_app/pages/property_details/property_details_page.dart';
+import 'package:realtor_app/routes/routes.dart';
 
 import '../application/providers/application_providers.dart';
 
@@ -94,7 +96,8 @@ class HomePage extends ConsumerWidget {
                                   hintText: "Province, City...",
                                   prefixIcon: Icon(
                                     Icons.location_on_outlined,
-                                    color: AppColors.priColor.withOpacity(0.4), size: 18.h,
+                                    color: AppColors.priColor.withOpacity(0.4),
+                                    size: 18.h,
                                   ),
                                   hintStyle: appStyle(
                                       16,
@@ -145,7 +148,7 @@ class HomePage extends ConsumerWidget {
                     SizedBox(height: 16.h),
                     GestureDetector(
                       onTap: () {
-                        if(searchController.text.isNotEmpty){
+                        if (searchController.text.isNotEmpty) {
                           ref.read(bottomIndexProvider.notifier).state = 1;
                         }
                       },
@@ -166,31 +169,59 @@ class HomePage extends ConsumerWidget {
                   ],
                 ),
               ),
-              SectionHeading(text: "Featured", onTap: () => ref.read(bottomIndexProvider.notifier).state = 1),
+              SectionHeading(
+                  text: "Featured",
+                  onTap: () =>
+                      ref.read(bottomIndexProvider.notifier).state = 1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
-                  width: 345.w, height: 270.h ,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5,
-                          itemBuilder: (ctx, index) {
-                            return PropertyCard(onTap: () {}, property: fiveFeaturedPropertyList[index], );
-                          }),
-                ),
+                child: isLoading
+                    ? CircularProgressIndicator(color: AppColors.priColor)
+                    : Container(
+                        width: 345.w,
+                        height: 270.h,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (ctx, index) {
+                              return PropertyCard(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          PropertyDetailsPage(property: fiveFeaturedPropertyList[index])));
+                                },
+                                property: fiveFeaturedPropertyList[index],
+                              );
+                            }),
+                      ),
               ),
-              SectionHeading(text: "Trending", onTap:() => ref.read(bottomIndexProvider.notifier).state = 1),
+              SectionHeading(
+                  text: "Trending",
+                  onTap: () =>
+                      ref.read(bottomIndexProvider.notifier).state = 1),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                child: isLoading ? CircularProgressIndicator(color: AppColors.priColor) : Container(
-                  width: 345.w, height: 270.h ,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (ctx, index) {
-                        return PropertyCard(onTap: () {}, property: fiveFeaturedPropertyList.reversed.toList()[index], );
-                      }),
-                ),
+                child: isLoading
+                    ? CircularProgressIndicator(color: AppColors.priColor)
+                    : Container(
+                        width: 345.w,
+                        height: 270.h,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (ctx, index) {
+                              return PropertyCard(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            PropertyDetailsPage(property: fiveFeaturedPropertyList.reversed
+                                                .toList()[index])));
+                                  },
+                                property: fiveFeaturedPropertyList.reversed
+                                    .toList()[index],
+                              );
+                            }),
+                      ),
               ),
               SizedBox(height: 30.h)
             ],
