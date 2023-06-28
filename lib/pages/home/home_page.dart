@@ -7,7 +7,6 @@ import 'package:realtor_app/data/providers/property_provider.dart';
 import 'package:realtor_app/pages/home/widgets/icon_text.dart';
 import 'package:realtor_app/pages/home/widgets/property_card.dart';
 import 'package:realtor_app/pages/home/widgets/section_heading.dart';
-import 'package:realtor_app/routes/routes.dart';
 
 import '../application/providers/application_providers.dart';
 
@@ -47,7 +46,7 @@ class HomePage extends ConsumerWidget {
                             ),
                             SizedBox(height: 4.h),
                             Text(
-                              "Good morning, CJ 👋",
+                              "Welcome, CJ Chika 👋",
                               style: appStyle(
                                   14.sp, AppColors.priColor, FontWeight.w500),
                             )
@@ -169,7 +168,7 @@ class HomePage extends ConsumerWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
                           itemBuilder: (ctx, index) {
-                            return PropertyCard(onTap: () {}, onBookmark: () {}, property: fiveFeaturedPropertyList[index], );
+                            return PropertyCard(onTap: () {}, property: fiveFeaturedPropertyList[index], );
                           }),
                 ),
               ),
@@ -182,7 +181,7 @@ class HomePage extends ConsumerWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (ctx, index) {
-                        return PropertyCard(onTap: () {}, onBookmark: () {}, property: fiveFeaturedPropertyList.reversed.toList()[index], );
+                        return PropertyCard(onTap: () {}, property: fiveFeaturedPropertyList.reversed.toList()[index], );
                       }),
                 ),
               ),

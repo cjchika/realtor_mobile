@@ -1,25 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/data/models/property_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:realtor_app/data/providers/property_provider.dart';
 
-class PropertyCard extends StatelessWidget {
+class PropertyCard extends ConsumerWidget {
   const PropertyCard({
     super.key,
     required this.onTap,
-    required this.onBookmark,
     required this.property,
   });
 
   final void Function() onTap;
-  final void Function() onBookmark;
   final PropertyModel property;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
@@ -37,21 +37,52 @@ class PropertyCard extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: 330.w,
                     height: 150.h,
-                    placeholder: (context, url) => SvgPicture.asset(
-                      'assets/images/placeholder.svg',
-                      fit: BoxFit.cover,
-                      width: 330.w,
-                      height: 150.h,
-                    ),
+                    placeholder: (context, url) =>
+                        SvgPicture.asset(
+                          'assets/images/placeholder.svg',
+                          fit: BoxFit.cover,
+                          width: 330.w,
+                          height: 150.h,
+                        ),
                     errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                        SvgPicture.asset(
+                          'assets/images/placeholder.svg',
+                          fit: BoxFit.cover,
+                          width: 330.w,
+                          height: 150.h,
+                        ),
                   ),
                 ),
                 Positioned(
                   right: 10,
                   top: 10,
-                  child: GestureDetector(
-                    onTap: onBookmark,
+                  child: property.isBookmarked ? GestureDetector(
+                    onTap: () {
+                      ref.read(propertyProvider.notifier).toggleBookmark(
+                          property.externalID ?? "0",
+                          isBookmarked: false);
+                    },
+                    child: Container(
+                      width: 30.w,
+                      height: 30.h,
+                      decoration: BoxDecoration(
+                        color: AppColors.secColor,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(6.w),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.bookmark_sharp,
+                        size: 20,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ) : GestureDetector(
+                    onTap: () {
+                      ref.read(propertyProvider.notifier).toggleBookmark(
+                          property.externalID ?? "0",
+                          isBookmarked: true);
+                    },
                     child: Container(
                       width: 30.w,
                       height: 30.h,
@@ -207,7 +238,7 @@ class PropertyCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "\$${property.price}/",
+                              "AED${property.price}/",
                               style: appStyle(
                                   14, AppColors.priColor, FontWeight.w600),
                             ),
