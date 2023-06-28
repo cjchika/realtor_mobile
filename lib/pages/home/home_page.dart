@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,9 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentIdx = ref.watch(bottomIndexProvider);
+    final now = DateTime.now();
+    String currentDate = DateFormat('MMMMEEEEd').format(now);
+    // final currentIdx = ref.watch(bottomIndexProvider);
     final fiveFeaturedPropertyList = ref.watch(propertyProvider);
     final isLoading = ref.watch(isLoadingPropertiesProvider);
 
@@ -40,7 +43,7 @@ class HomePage extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Sunday, June 25",
+                              currentDate,
                               style: appStyle(
                                   10.sp, AppColors.secColor, FontWeight.w500),
                             ),
