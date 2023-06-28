@@ -22,7 +22,7 @@ class PropertiesPage extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
             "Property Listing",
-            style: appStyle(18.sp, AppColors.priColor, FontWeight.w500),
+            style: appStyle(16.sp, AppColors.priColor, FontWeight.w500),
           ),
         ),
       ),

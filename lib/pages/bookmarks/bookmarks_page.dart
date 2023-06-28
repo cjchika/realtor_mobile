@@ -22,27 +22,35 @@ class BookmarksPage extends ConsumerWidget {
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            "Property Listing",
-            style: appStyle(18.sp, AppColors.priColor, FontWeight.w500),
+            "Bookmarks",
+            style: appStyle(16.sp, AppColors.priColor, FontWeight.w500),
           ),
         ),
       ),
       body: isLoading
           ? Center(
-        child: CircularProgressIndicator(color: AppColors.priColor),
-      )
+              child: CircularProgressIndicator(color: AppColors.priColor),
+            )
           : Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
-        child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: propertyBookmarksList.length,
-            itemBuilder: (ctx, index) {
-              return PropertyCard(
-                onTap: () {},
-                property: propertyBookmarksList[index],
-              );
-            }),
-      ),
+              padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
+              child: propertyBookmarksList.isNotEmpty
+                  ? ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: propertyBookmarksList.length,
+                      itemBuilder: (ctx, index) {
+                        return PropertyCard(
+                          onTap: () {},
+                          property: propertyBookmarksList[index],
+                        );
+                      })
+                  : Center(
+                      child: Text(
+                        "No Bookmarks.",
+                        style:
+                            appStyle(18, AppColors.secColor, FontWeight.w500),
+                      ),
+                    ),
+            ),
     );
   }
 }

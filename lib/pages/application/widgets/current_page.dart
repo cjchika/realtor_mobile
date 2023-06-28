@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:realtor_app/pages/bookmarks/bookmarks_page.dart';
 import 'package:realtor_app/pages/home/home_page.dart';
 
 import '../../properties/properties_page.dart';
@@ -15,7 +16,7 @@ class CurrentPage extends StatelessWidget {
     List<Widget> currentWidget = [
       const HomePage(),
       const PropertiesPage(),
-      const Center(child: Text("Bookmarks")),
+      const BookmarksPage(),
       const Center(child: Text("Profile")),
     ];
 
