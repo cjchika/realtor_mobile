@@ -19,7 +19,7 @@ class HomePage extends ConsumerWidget {
     final fiveFeaturedPropertyList = ref.watch(propertyProvider);
     final isLoading = ref.watch(isLoadingPropertiesProvider);
 
-    final TextEditingController controller = TextEditingController();
+    final TextEditingController searchController = TextEditingController();
 
     return Scaffold(
       body: Container(
@@ -46,7 +46,7 @@ class HomePage extends ConsumerWidget {
                             ),
                             SizedBox(height: 4.h),
                             Text(
-                              "Welcome, CJ Chika 👋",
+                              "Welcome, Guest 👋",
                               style: appStyle(
                                   14.sp, AppColors.priColor, FontWeight.w500),
                             )
@@ -81,17 +81,17 @@ class HomePage extends ConsumerWidget {
                           SizedBox(
                             child: TextFormField(
                               keyboardType: TextInputType.text,
-                              controller: controller,
+                              controller: searchController,
                               onChanged: null,
                               style: appStyle(
                                   16,
                                   AppColors.priColor.withOpacity(0.8),
                                   FontWeight.w500),
                               decoration: InputDecoration(
-                                  hintText: "Street, City...",
+                                  hintText: "Province, City...",
                                   prefixIcon: Icon(
                                     Icons.location_on_outlined,
-                                    color: AppColors.priColor.withOpacity(0.4),
+                                    color: AppColors.priColor.withOpacity(0.4), size: 18.h,
                                   ),
                                   hintStyle: appStyle(
                                       16,
@@ -141,7 +141,11 @@ class HomePage extends ConsumerWidget {
                     ),
                     SizedBox(height: 16.h),
                     GestureDetector(
-                      onTap: null,
+                      onTap: () {
+                        if(searchController.text.isNotEmpty){
+                          ref.read(bottomIndexProvider.notifier).state = 1;
+                        }
+                      },
                       child: Container(
                         width: 330.w,
                         height: 48.h,
