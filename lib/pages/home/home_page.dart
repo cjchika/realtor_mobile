@@ -114,7 +114,7 @@ class HomePage extends ConsumerWidget {
                                     icon: Icons.bed_outlined,
                                     text: "Bed",
                                     textStyle: appStyle(
-                                        16,
+                                        14,
                                         AppColors.priColor.withOpacity(0.5),
                                         FontWeight.w600),
                                     size: 21),
@@ -123,7 +123,7 @@ class HomePage extends ConsumerWidget {
                                     icon: Icons.currency_exchange,
                                     text: "500-1000",
                                     textStyle: appStyle(
-                                        15,
+                                        13,
                                         AppColors.priColor.withOpacity(0.5),
                                         FontWeight.w600),
                                     size: 17),
@@ -132,7 +132,7 @@ class HomePage extends ConsumerWidget {
                                     icon: Icons.house_outlined,
                                     text: "Type",
                                     textStyle: appStyle(
-                                        15,
+                                        13,
                                         AppColors.priColor.withOpacity(0.5),
                                         FontWeight.w600),
                                     size: 21),

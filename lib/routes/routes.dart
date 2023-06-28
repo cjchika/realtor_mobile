@@ -4,4 +4,5 @@ class Routes {
   static const String APPLICATION = '/application';
   static const String PROPERTIES = '/properties';
   static const String BOOKMARKS = '/bookmarks';
+  static const String PROFILE = '/profile';
 }

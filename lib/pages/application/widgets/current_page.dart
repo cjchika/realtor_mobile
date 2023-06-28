@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/pages/bookmarks/bookmarks_page.dart';
 import 'package:realtor_app/pages/home/home_page.dart';
 
+import '../../profile/profile_page.dart';
 import '../../properties/properties_page.dart';
 
 class CurrentPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class CurrentPage extends StatelessWidget {
       const HomePage(),
       const PropertiesPage(),
       const BookmarksPage(),
-      const Center(child: Text("Profile")),
+      const ProfilePage(),
     ];
 
     return currentWidget[index];
