@@ -16,6 +16,8 @@ class PropertyDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print(property.amenities);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(275.h),
@@ -130,14 +132,15 @@ class PropertyDetailsPage extends ConsumerWidget {
             children: [
               Container(
                 child: Container(
-                  padding: EdgeInsets.only(top: 18.h, bottom: 10.h),
+                  padding: EdgeInsets.only(top: 18.h, bottom: 5.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
                         child: Text(
-                          property.title ?? "",
-                          style: appStyle(14, AppColors.priColor, FontWeight.w500),
+                          property.title?.substring(0, 30) ?? "",
+                          style: appStyle(
+                              14.sp, AppColors.priColor, FontWeight.bold),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -147,8 +150,8 @@ class PropertyDetailsPage extends ConsumerWidget {
                         children: [
                           Text(
                             property.productScore.toString(),
-                            style:
-                                appStyle(14, AppColors.priColor, FontWeight.w500),
+                            style: appStyle(
+                                14, AppColors.priColor, FontWeight.w500),
                           ),
                           Icon(
                             Icons.star,
@@ -243,15 +246,51 @@ class PropertyDetailsPage extends ConsumerWidget {
               ),
               SizedBox(height: 9.h),
               const Divider(),
-              SizedBox(height: 9.h),
+              SizedBox(height: 10.h),
+              Container(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Location",
+                      style: appStyle(14.sp, AppColors.priColor, FontWeight.bold),
+                      softWrap: true,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.location_on_outlined, color: AppColors.secColor),
+                        SizedBox(width: 10.w),
+                        Text(
+                          property.location??"",
+                          style: appStyle(14.sp, AppColors.secColor, FontWeight.bold),
+                          softWrap: true,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
                 child: Text(
-                   "Facilities",
-                  style: appStyle(13.sp, AppColors.priColor, FontWeight.bold),
+                  "Facilities",
+                  style: appStyle(14.sp, AppColors.priColor, FontWeight.bold),
                   softWrap: true,
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
+                // child: ListView.builder(
+                //     // scrollDirection: Axis.horizontal,
+                //     itemCount: property.amenities?.length,
+                //     itemBuilder: (context, index) {
+                //       return Expanded(child: Text(property.amenities?[index]));
+                //
+                //     }),
+                // child: GestureDetector(onTap: () {print(property.amenities);},),
+              )
             ],
           ),
         ),
