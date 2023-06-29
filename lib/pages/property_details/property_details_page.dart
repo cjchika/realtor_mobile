@@ -1,18 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/data/models/property_model.dart';
 
-class PropertyDetailsPage extends StatelessWidget {
+import '../../data/providers/property_provider.dart';
+
+class PropertyDetailsPage extends ConsumerWidget {
   const PropertyDetailsPage({super.key, required this.property});
 
   final PropertyModel property;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(300.h),
@@ -23,10 +26,76 @@ class PropertyDetailsPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.h))),
-                  height: 35.h,
-                  width: 35.w,
-                  child: Icon(Icons.arrow_back, size: 20.h,))),
-          actions: [],
+                  height: 32.h,
+                  width: 32.w,
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 20.h,
+                  ))),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Row(
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.h))),
+                      height: 32.h,
+                      width: 32.w,
+                      child: Icon(Icons.share, size: 20.h,)),
+                  SizedBox(width: 10.w),
+                  property.isBookmarked
+                      ? GestureDetector(
+                          onTap: () {
+                            ref.read(propertyProvider.notifier).toggleBookmark(
+                                property.externalID ?? "0",
+                                isBookmarked: false);
+
+                          },
+                          child: Container(
+                            width: 32.w,
+                            height: 32.h,
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.w),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.bookmark_sharp,
+                              size: 20,
+                              color: AppColors.priColor,
+                            ),
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            ref.read(propertyProvider.notifier).toggleBookmark(
+                                property.externalID ?? "0",
+                                isBookmarked: true);
+                          },
+                          child: Container(
+                            width: 32.w,
+                            height: 32.h,
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.w),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.bookmark_outline_sharp,
+                              size: 20,
+                              color: AppColors.priColor,
+                            ),
+                          ),
+                        )
+                ],
+              ),
+            )
+          ],
           flexibleSpace: Container(
             height: 300.h,
             child: CachedNetworkImage(
