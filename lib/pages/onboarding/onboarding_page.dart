@@ -12,7 +12,7 @@ class OnboardingPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     PageController pageController = PageController(initialPage: 0);
-    final pageIndex = ref.watch(pageIndexProvider);
+    // final pageIndex = ref.watch(pageIndexProvider);
 
     return Container(
       color: Colors.white,
@@ -40,7 +40,7 @@ class OnboardingPage extends ConsumerWidget {
                   PageSlide(
                     index: 2,
                     buttonText: "Next",
-                    title: "Find your best Real Estate Services.",
+                    title: "Find the best Real Estate Services.",
                     subTitle:
                         "The best Real Estate Services are found here, take the opportunity.",
                     imagePath: "assets/images/house02.png",

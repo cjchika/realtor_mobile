@@ -16,7 +16,6 @@ class PropertyDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print(property.amenities);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -156,6 +155,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                   style: appStyle(
                                       14, AppColors.priColor, FontWeight.w500),
                                 ),
+                                SizedBox(width: 5.w),
                                 Icon(
                                   Icons.star,
                                   size: 19,
@@ -180,7 +180,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                 children: [
                                   Icon(
                                     Icons.bed_outlined,
-                                    size: 16.w,
+                                    size: 20.w,
                                     color: AppColors.priColor,
                                   ),
                                   SizedBox(
@@ -188,7 +188,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                   ),
                                   Text(
                                     property.rooms.toString(),
-                                    style: appStyle(13, AppColors.priColor,
+                                    style: appStyle(15.sp, AppColors.priColor,
                                         FontWeight.normal),
                                   )
                                 ],
@@ -199,7 +199,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                 children: [
                                   Icon(
                                     Icons.bathtub_outlined,
-                                    size: 16.w,
+                                    size: 19.w,
                                     color: AppColors.priColor,
                                   ),
                                   SizedBox(
@@ -207,7 +207,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                   ),
                                   Text(
                                     property.baths.toString(),
-                                    style: appStyle(13, AppColors.priColor,
+                                    style: appStyle(15.sp, AppColors.priColor,
                                         FontWeight.normal),
                                   )
                                 ],
@@ -218,7 +218,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                 children: [
                                   Icon(
                                     Icons.house_outlined,
-                                    size: 18.w,
+                                    size: 22.w,
                                     color: AppColors.priColor,
                                   ),
                                   SizedBox(
@@ -226,7 +226,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                                   ),
                                   Text(
                                     property.category ?? "",
-                                    style: appStyle(13, AppColors.priColor,
+                                    style: appStyle(15.sp, AppColors.priColor,
                                         FontWeight.normal),
                                   )
                                 ],
@@ -288,20 +288,27 @@ class PropertyDetailsPage extends ConsumerWidget {
                         softWrap: true,
                       ),
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 14.h),
                     Container(
-                      width: 300.w,
-                      height: 200.h,
+                      width: 340.w,
+                      height: 150.h,
                       child: ListView.builder(
                           // scrollDirection: Axis.horizontal,
                           itemCount: property.amenities?.length,
                           itemBuilder: (context, index) {
                             return Column(children: [
-                              Text(
-                                property.amenities![index],
-                                style: appStyle(
-                                    16.sp, AppColors.secColor, FontWeight.w500),
+                              Row(
+                                children: [
+                                  Icon(Icons.check_circle, size: 18.h, color: AppColors.priColor,),
+                                  SizedBox(width: 10.w),
+                                  Text(
+                                    property.amenities![index],
+                                    style: appStyle(
+                                        15.sp, AppColors.secColor, FontWeight.w400),
+                                  ),
+                                ],
                               ),
+                              SizedBox(height: 5.h),
                             ]);
                           }),
                     ),
