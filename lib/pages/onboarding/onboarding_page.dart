@@ -17,8 +17,9 @@ class OnboardingPage extends ConsumerWidget {
     return Container(
       color: Colors.white,
       child: Scaffold(
+        appBar: AppBar(backgroundColor: Colors.transparent),
         body: Container(
-          margin: EdgeInsets.only(top: 80.h),
+          margin: EdgeInsets.only(top: 5.h),
           width: 375.w,
           child: Stack(
             alignment: Alignment.topCenter,

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
-          appBarTheme: const AppBarTheme(elevation: 0),
+          appBarTheme: const AppBarTheme(elevation: 0, backgroundColor: Colors.transparent),
         ),
         home: const OnboardingPage(),
         routes: AppRoutes.routes,

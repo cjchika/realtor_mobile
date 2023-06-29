@@ -18,7 +18,8 @@ class PropertiesPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
+        shadowColor: Colors.white,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(

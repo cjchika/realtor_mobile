@@ -126,173 +126,191 @@ class PropertyDetailsPage extends ConsumerWidget {
       ),
       body: Container(
         color: AppColors.liteColor.withOpacity(0.2),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              Container(
-                child: Container(
-                  padding: EdgeInsets.only(top: 18.h, bottom: 5.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          property.title?.substring(0, 30) ?? "",
-                          style: appStyle(
-                              14.sp, AppColors.priColor, FontWeight.bold),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+        child: ListView(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    Container(
+                      child: Container(
+                        padding: EdgeInsets.only(top: 18.h, bottom: 5.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              child: Text(
+                                property.title?.substring(0, 30) ?? "",
+                                style: appStyle(
+                                    14.sp, AppColors.priColor, FontWeight.bold),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  property.productScore.toString(),
+                                  style: appStyle(
+                                      14, AppColors.priColor, FontWeight.w500),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 19,
+                                  color: AppColors.priColor,
+                                )
+                              ],
+                            )
+                          ],
                         ),
                       ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                    SizedBox(height: 10.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.bed_outlined,
+                                    size: 16.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    property.rooms.toString(),
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 10.w),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.bathtub_outlined,
+                                    size: 16.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    property.baths.toString(),
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 10.w),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.house_outlined,
+                                    size: 18.w,
+                                    color: AppColors.priColor,
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Text(
+                                    property.category ?? "",
+                                    style: appStyle(13, AppColors.priColor,
+                                        FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10.h),
+                    const Divider(),
+                    SizedBox(height: 10.h),
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        property.title ?? "",
+                        style: appStyle(
+                            13.sp, AppColors.priColor, FontWeight.normal),
+                        softWrap: true,
+                      ),
+                    ),
+                    SizedBox(height: 9.h),
+                    const Divider(),
+                    SizedBox(height: 10.h),
+                    Container(
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            property.productScore.toString(),
+                            "Location",
                             style: appStyle(
-                                14, AppColors.priColor, FontWeight.w500),
+                                14.sp, AppColors.priColor, FontWeight.bold),
+                            softWrap: true,
                           ),
-                          Icon(
-                            Icons.star,
-                            size: 19,
-                            color: AppColors.priColor,
-                          )
+                          Row(
+                            children: [
+                              Icon(Icons.location_on_outlined,
+                                  color: AppColors.secColor, size: 20.h),
+                              SizedBox(width: 8.w),
+                              Text(
+                                property.location ?? "",
+                                style: appStyle(
+                                    14.sp, AppColors.secColor, FontWeight.bold),
+                                softWrap: true,
+                              ),
+                            ],
+                          ),
                         ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.bed_outlined,
-                              size: 16.w,
-                              color: AppColors.priColor,
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Text(
-                              property.rooms.toString(),
-                              style: appStyle(
-                                  13, AppColors.priColor, FontWeight.normal),
-                            )
-                          ],
-                        ),
-                        SizedBox(width: 10.w),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.bathtub_outlined,
-                              size: 16.w,
-                              color: AppColors.priColor,
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Text(
-                              property.baths.toString(),
-                              style: appStyle(
-                                  13, AppColors.priColor, FontWeight.normal),
-                            )
-                          ],
-                        ),
-                        SizedBox(width: 10.w),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.house_outlined,
-                              size: 18.w,
-                              color: AppColors.priColor,
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Text(
-                              property.category ?? "",
-                              style: appStyle(
-                                  13, AppColors.priColor, FontWeight.normal),
-                            )
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10.h),
-              const Divider(),
-              SizedBox(height: 10.h),
-              Container(
-                width: double.infinity,
-                child: Text(
-                  property.title ?? "",
-                  style: appStyle(13.sp, AppColors.priColor, FontWeight.normal),
-                  softWrap: true,
-                ),
-              ),
-              SizedBox(height: 9.h),
-              const Divider(),
-              SizedBox(height: 10.h),
-              Container(
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Location",
-                      style: appStyle(14.sp, AppColors.priColor, FontWeight.bold),
-                      softWrap: true,
+                    SizedBox(height: 16.h),
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "Facilities",
+                        style: appStyle(
+                            14.sp, AppColors.priColor, FontWeight.bold),
+                        softWrap: true,
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Icon(Icons.location_on_outlined, color: AppColors.secColor),
-                        SizedBox(width: 10.w),
-                        Text(
-                          property.location??"",
-                          style: appStyle(14.sp, AppColors.secColor, FontWeight.bold),
-                          softWrap: true,
-                        ),
-                      ],
+                    SizedBox(height: 10.h),
+                    Container(
+                      width: 300.w,
+                      height: 200.h,
+                      child: ListView.builder(
+                          // scrollDirection: Axis.horizontal,
+                          itemCount: property.amenities?.length,
+                          itemBuilder: (context, index) {
+                            return Column(children: [
+                              Text(
+                                property.amenities![index],
+                                style: appStyle(
+                                    16.sp, AppColors.secColor, FontWeight.w500),
+                              ),
+                            ]);
+                          }),
                     ),
+                    // child: GestureDetector(onTap: () {print(property.amenities);},),
                   ],
                 ),
               ),
-              SizedBox(height: 16.h),
-              Container(
-                width: double.infinity,
-                child: Text(
-                  "Facilities",
-                  style: appStyle(14.sp, AppColors.priColor, FontWeight.bold),
-                  softWrap: true,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
-                // child: ListView.builder(
-                //     // scrollDirection: Axis.horizontal,
-                //     itemCount: property.amenities?.length,
-                //     itemBuilder: (context, index) {
-                //       return Expanded(child: Text(property.amenities?[index]));
-                //
-                //     }),
-                // child: GestureDetector(onTap: () {print(property.amenities);},),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
       bottomNavigationBar: Container(

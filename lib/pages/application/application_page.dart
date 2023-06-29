@@ -15,6 +15,7 @@ class ApplicationPage extends ConsumerWidget {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
+
           body: CurrentPage(index: currentIdx),
           bottomNavigationBar: Container(
             width: 375.w,
