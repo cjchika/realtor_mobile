@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
 import 'package:realtor_app/core/constants/app_style.dart';
 import 'package:realtor_app/data/models/property_model.dart';
@@ -12,14 +14,50 @@ class PropertyDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          property.title?.substring(0, 28) ?? "",
-          style: appStyle(16, AppColors.priColor, FontWeight.normal),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(300.h),
+        child: AppBar(
+          leading: IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(10.h))),
+                  height: 35.h,
+                  width: 35.w,
+                  child: Icon(Icons.arrow_back, size: 20.h,))),
+          actions: [],
+          flexibleSpace: Container(
+            height: 300.h,
+            child: CachedNetworkImage(
+              imageUrl: property.coverPhoto ?? "",
+              fit: BoxFit.cover,
+              width: 330.w,
+              height: 150.h,
+              placeholder: (context, url) => SvgPicture.asset(
+                'assets/images/placeholder.svg',
+                fit: BoxFit.cover,
+                width: 330.w,
+                height: 150.h,
+              ),
+              errorWidget: (context, url, error) => SvgPicture.asset(
+                'assets/images/placeholder.svg',
+                fit: BoxFit.cover,
+                width: 330.w,
+                height: 150.h,
+              ),
+            ),
+          ),
+          backgroundColor: Colors.transparent,
         ),
       ),
-      body: Center(
-        child: Text("Details Page"),
+      body: Column(
+        children: [
+          Container(
+              child: Center(
+            child: Text("Prop"),
+          ))
+        ],
       ),
       bottomNavigationBar: Container(
         width: 375.w,
