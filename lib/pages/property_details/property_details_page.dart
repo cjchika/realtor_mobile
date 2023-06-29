@@ -44,7 +44,10 @@ class PropertyDetailsPage extends ConsumerWidget {
                               BorderRadius.all(Radius.circular(10.h))),
                       height: 32.h,
                       width: 32.w,
-                      child: Icon(Icons.share, size: 20.h,)),
+                      child: Icon(
+                        Icons.share,
+                        size: 20.h,
+                      )),
                   SizedBox(width: 10.w),
                   property.isBookmarked
                       ? GestureDetector(
@@ -52,7 +55,6 @@ class PropertyDetailsPage extends ConsumerWidget {
                             ref.read(propertyProvider.notifier).toggleBookmark(
                                 property.externalID ?? "0",
                                 isBookmarked: false);
-
                           },
                           child: Container(
                             width: 32.w,
@@ -120,13 +122,111 @@ class PropertyDetailsPage extends ConsumerWidget {
           backgroundColor: Colors.transparent,
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-              child: Center(
-            child: Text("Prop"),
-          ))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          children: [
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      property.title ?? "",
+                      style: appStyle(14, AppColors.priColor, FontWeight.w500),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        property.productScore.toString(),
+                        style:
+                            appStyle(14, AppColors.priColor, FontWeight.w500),
+                      ),
+                      Icon(
+                        Icons.star,
+                        size: 19,
+                        color: AppColors.priColor,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 8.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Row(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.bed_outlined,
+                            size: 16.w,
+                            color: AppColors.priColor,
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            property.rooms.toString(),
+                            style: appStyle(13, AppColors.priColor,
+                                FontWeight.normal),
+                          )
+                        ],
+                      ),
+                      SizedBox(width: 10.w),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.bathtub_outlined,
+                            size: 16.w,
+                            color: AppColors.priColor,
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            property.baths.toString(),
+                            style: appStyle(13, AppColors.priColor,
+                                FontWeight.normal),
+                          )
+                        ],
+                      ),
+                      SizedBox(width: 10.w),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.house_outlined,
+                            size: 18.w,
+                            color: AppColors.priColor,
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            property.category ?? "",
+                            style: appStyle(13, AppColors.priColor,
+                                FontWeight.normal),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         width: 375.w,
