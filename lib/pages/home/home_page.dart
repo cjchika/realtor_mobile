@@ -76,7 +76,7 @@ class HomePage extends ConsumerWidget {
                     SizedBox(height: 16.h),
                     Container(
                       padding: EdgeInsets.all(5.w),
-                      height: 100.h,
+                      height: 115.h,
                       decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius: BorderRadius.all(Radius.circular(8.w))),
@@ -178,7 +178,7 @@ class HomePage extends ConsumerWidget {
                     ? CircularProgressIndicator(color: AppColors.priColor)
                     : Container(
                         width: 345.w,
-                        height: 270.h,
+                        height: 290.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: 5,
@@ -208,7 +208,7 @@ class HomePage extends ConsumerWidget {
                     ? CircularProgressIndicator(color: AppColors.priColor)
                     : Container(
                         width: 345.w,
-                        height: 270.h,
+                        height: 290.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: 5,

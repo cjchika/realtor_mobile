@@ -19,7 +19,7 @@ class OnboardingPage extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(backgroundColor: Colors.transparent),
         body: Container(
-          margin: EdgeInsets.only(top: 5.h),
+
           width: 375.w,
           child: Stack(
             alignment: Alignment.topCenter,
@@ -58,7 +58,7 @@ class OnboardingPage extends ConsumerWidget {
                 ],
               ),
               Positioned(
-                bottom: 70.h,
+                bottom: 50.h,
                 child: SmoothPageIndicator(
                   controller: pageController,
                   count: 3,

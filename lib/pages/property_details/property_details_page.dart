@@ -121,6 +121,7 @@ class PropertyDetailsPage extends ConsumerWidget {
             ),
           ),
           backgroundColor: Colors.transparent,
+          shadowColor: Colors.white,
         ),
       ),
       body: Container(

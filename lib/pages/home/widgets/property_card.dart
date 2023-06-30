@@ -104,7 +104,7 @@ class PropertyCard extends ConsumerWidget {
             ),
             Container(
               width: 330.w,
-              height: 105.h,
+              height: 110.h,
               decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.only(
