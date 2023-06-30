@@ -24,6 +24,14 @@ class SharedPreferenceHelper {
     await _sharedPreference.setBool(PrefKeys.isLoggedIn, value);
   }
 
+  void setOpenFirstTime(bool value) {
+    _sharedPreference.setBool(PrefKeys.openFirstTime, value);
+  }
+
+  bool get getOpenFirstTime {
+    return _sharedPreference.getBool(PrefKeys.openFirstTime) ?? false;
+  }
+
   bool get isLoggedIn {
     return _sharedPreference.getBool(PrefKeys.isLoggedIn) ?? false;
   }
@@ -36,4 +44,5 @@ class SharedPreferenceHelper {
 mixin PrefKeys {
   static const String isLoggedIn = "isLoggedIn";
   static const String authToken = "authToken";
+  static const String openFirstTime = "openFirstTime";
 }

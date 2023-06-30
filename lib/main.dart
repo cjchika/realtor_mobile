@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:realtor_app/core/shared_provider/shared_providers.dart';
+import 'package:realtor_app/pages/application/application_page.dart';
 import 'package:realtor_app/pages/onboarding/onboarding_page.dart';
 import 'package:realtor_app/routes/app_routes.dart';
 
@@ -10,12 +12,14 @@ void main() {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // final firstTime = ref.watch(sharedPrefHelperProvider).getOpenFirstTime;
+    // print(firstTime);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(

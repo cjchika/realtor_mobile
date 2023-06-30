@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
-// import 'package:realtor_app/pages/onboarding/providers/onboarding_providers.dart';
 import 'package:realtor_app/routes/routes.dart';
+
+import '../../../core/shared_provider/shared_providers.dart';
 
 class PageSlide extends ConsumerWidget {
   const PageSlide(
@@ -24,6 +25,8 @@ class PageSlide extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final setOpenFirstTime = ref.read(sharedPrefHelperProvider);
+
     return Column(children: [
       SizedBox(
         width: 340.w,
@@ -61,6 +64,7 @@ class PageSlide extends ConsumerWidget {
              curve: Curves.easeIn,
            );
          } else {
+           setOpenFirstTime.setOpenFirstTime(true);
            Navigator.of(context).pushNamedAndRemoveUntil(Routes.APPLICATION, (route) => false);
          }
         },
