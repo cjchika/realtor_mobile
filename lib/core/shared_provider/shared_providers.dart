@@ -20,3 +20,8 @@ final preferencesProvider = Provider<Preference>((ref) {
 final sharedPrefHelperProvider = Provider<SharedPreferenceHelper>((ref) {
   return SharedPreferenceHelper(ref.read(preferencesProvider));
 });
+
+// final setOpenFirstTimeProvider = StateProvider<SharedPreferenceHelper>((ref) {
+//   return ref.read(sharedPrefHelperProvider).setOpenFirstTime(true);
+//
+// });

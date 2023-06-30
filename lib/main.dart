@@ -5,21 +5,26 @@ import 'package:realtor_app/core/shared_provider/shared_providers.dart';
 import 'package:realtor_app/pages/application/application_page.dart';
 import 'package:realtor_app/pages/onboarding/onboarding_page.dart';
 import 'package:realtor_app/routes/app_routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+int? isFirstTime;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isFirstTime = prefs.getInt('openFirstTime');
   runApp(const ProviderScope(
     child: MyApp(),
   ));
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // final firstTime = ref.watch(sharedPrefHelperProvider).getOpenFirstTime;
-    // print(firstTime);
+  Widget build(BuildContext context) {
+    // print(isFirstTime);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
@@ -29,7 +34,7 @@ class MyApp extends ConsumerWidget {
           useMaterial3: true,
           appBarTheme: const AppBarTheme(elevation: 0, backgroundColor: Colors.transparent),
         ),
-        home: const OnboardingPage(),
+        home: isFirstTime == 1 ? const ApplicationPage() : const OnboardingPage(),
         routes: AppRoutes.routes,
       ),
     );

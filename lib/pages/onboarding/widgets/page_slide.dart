@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:realtor_app/core/constants/app_colors.dart';
+import 'package:realtor_app/core/shared_preferences/helper.dart';
 import 'package:realtor_app/routes/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/shared_provider/shared_providers.dart';
 
@@ -25,7 +27,7 @@ class PageSlide extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final setOpenFirstTime = ref.read(sharedPrefHelperProvider);
+   SharedPreferenceHelper sharedPreferenceHelper;
 
     return Column(children: [
       SizedBox(
@@ -56,15 +58,16 @@ class PageSlide extends ConsumerWidget {
         ),
       ),
       GestureDetector(
-        onTap: () {
+        onTap: () async {
          if(index < 3){
            pageController.animateToPage(
             index,
              duration: const Duration(milliseconds: 500),
              curve: Curves.easeIn,
            );
-         } else {
-           setOpenFirstTime.setOpenFirstTime(true);
+         } else if (index == 3){
+           SharedPreferences prefs = await SharedPreferences.getInstance();
+           await prefs.setInt("openFirstTime",1);
            Navigator.of(context).pushNamedAndRemoveUntil(Routes.APPLICATION, (route) => false);
          }
         },

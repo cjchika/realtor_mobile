@@ -24,12 +24,12 @@ class SharedPreferenceHelper {
     await _sharedPreference.setBool(PrefKeys.isLoggedIn, value);
   }
 
-  void setOpenFirstTime(bool value) {
-    _sharedPreference.setBool(PrefKeys.openFirstTime, value);
+  Future<void> setOpenFirstTime(int value)async {
+    return await _sharedPreference.setInt(PrefKeys.openFirstTime, value);
   }
 
-  bool get getOpenFirstTime {
-    return _sharedPreference.getBool(PrefKeys.openFirstTime) ?? false;
+  int get getOpenFirstTime {
+    return _sharedPreference.getInt(PrefKeys.openFirstTime) ?? 0;
   }
 
   bool get isLoggedIn {
