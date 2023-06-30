@@ -16,6 +16,8 @@ class PropertyDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+  double screenHeight = MediaQuery.of(context).size.height;
+  double sreenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -100,7 +102,7 @@ class PropertyDetailsPage extends ConsumerWidget {
             )
           ],
           flexibleSpace: Container(
-            height: 300.h,
+            height: screenHeight/2,
             child: CachedNetworkImage(
               imageUrl: property.coverPhoto ?? "",
               fit: BoxFit.cover,
@@ -292,7 +294,7 @@ class PropertyDetailsPage extends ConsumerWidget {
                     SizedBox(height: 14.h),
                     Container(
                       width: 340.w,
-                      height: 150.h,
+                      height: screenHeight/6,
                       child: ListView.builder(
                           // scrollDirection: Axis.horizontal,
                           itemCount: property.amenities?.length,
@@ -323,7 +325,7 @@ class PropertyDetailsPage extends ConsumerWidget {
       ),
       bottomNavigationBar: Container(
         width: 375.w,
-        height: 78.h,
+        height: screenHeight/10,
         decoration: BoxDecoration(color: AppColors.white, boxShadow: [
           BoxShadow(
               color: Colors.grey.withOpacity(0.3),

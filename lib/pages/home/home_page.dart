@@ -17,6 +17,8 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    // double sreenWidth = MediaQuery.of(context).size.width;
     final now = DateTime.now();
     String currentDate = DateFormat('MMMMEEEEd').format(now);
     // final currentIdx = ref.watch(bottomIndexProvider);
@@ -76,7 +78,7 @@ class HomePage extends ConsumerWidget {
                     SizedBox(height: 16.h),
                     Container(
                       padding: EdgeInsets.all(5.w),
-                      height: 115.h,
+                      height: screenHeight/8.5,
                       decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius: BorderRadius.all(Radius.circular(8.w))),
