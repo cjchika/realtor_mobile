@@ -57,14 +57,6 @@ dev_dependencies:
   flutter_gen_runner: ^5.1.0+1
   flutter_native_splash: ^2.3.1
 
-flutter_native_splash:
-  color: "ffffff"
-  image: assets/images/splash.png
-  android_12:
-    image: assets/images/splash.png
-    color: "ffffff"
-    icon_background_color: "ffffff"
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
