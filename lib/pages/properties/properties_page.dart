@@ -21,7 +21,7 @@ class PropertiesPage extends ConsumerWidget {
         backgroundColor: AppColors.white,
         shadowColor: Colors.white,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.only(top: 20.w),
           child: Text(
             "Property Listing",
             style: appStyle(16.sp, AppColors.priColor, FontWeight.w500),

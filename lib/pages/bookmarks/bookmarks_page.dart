@@ -34,7 +34,7 @@ class BookmarksPage extends ConsumerWidget {
               child: CircularProgressIndicator(color: AppColors.priColor),
             )
           : Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 25.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: propertyBookmarksList.isNotEmpty
                   ? ListView.builder(
                       scrollDirection: Axis.vertical,
